@@ -1,0 +1,31 @@
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="sidenav">
+    <div class="login-main-text">
+       <h1>Página de registro</h1>
+       <p>Crea tu cuenta ;)</p>
+    </div>
+ </div>
+ <div class="main">
+    <div class="col-md-6 col-sm-12">
+       <div class="login-form">
+        <form class="form-content" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+             <div class="form-group">
+                {{ form.username|as_crispy_field }}
+             </div>
+             <div class="form-group">
+                {{ form.password1|as_crispy_field }}
+             </div>
+             <div class="form-group">
+                {{ form.password2|as_crispy_field }}
+             </div>
+             <button type="submit" class="btn btn-black">Regístrate</button>
+          </form>
+       </div>
+    </div>
+ </div>
+
+{% endblock %}
